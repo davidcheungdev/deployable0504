@@ -1,0 +1,28 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: deployable0504
+  annotations:
+    # nginx ingress
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    # cert-manager
+    ingress.kubernetes.io/ssl-redirect: "true"
+    cert-manager.io/cluster-issuer: clusterissuer-letsencrypt-production
+    # CORS
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+    nginx.ingress.kubernetes.io/cors-allow-origin: "https://pythonapp.zero-david.online"
+
+spec:
+  rules:
+  - host: pythonapi.zero-david.online
+    http:
+      paths:
+        - path: /(.*)
+          backend:
+            serviceName: myapp
+            servicePort: http
+  tls:
+  - hosts:
+    - pythonapi.zero-david.online
+    secretName: deployable0504-tls-secret

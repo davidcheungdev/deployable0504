@@ -1,0 +1,10 @@
+---
+apiVersion: policy/v1beta1
+kind: PodDisruptionBudget
+metadata:
+  name: deployable0504
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels:
+      service: deployable0504

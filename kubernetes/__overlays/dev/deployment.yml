@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployable0504
+spec:
+  template:
+    spec:
+      containers:
+        - name: deployable0504
+          image: 514226198018.dkr.ecr.us-east-2.amazonaws.com/deployable0504:last-deployed
+          resources:
+            requests:
+              memory: 64Mi
+              cpu: 0.1
+            limits:
+              memory: 256Mi
+              cpu: 1.0

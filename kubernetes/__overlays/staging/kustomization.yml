@@ -1,0 +1,18 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+patchesStrategicMerge:
+- deployment.yml
+
+resources:
+- ../../base
+## userAuth enabled - Oathkeeper proxies to backend instead of ingress
+# - ingress.yml
+
+configMapGenerator:
+- name: deployable0504-config
+  behavior: merge
+  literals:
+    - ENVIRONMENT=staging
+    - BACKEND_HOST=api0504.zero-david.online
+    - FRONTEND_HOST=app0504.zero-david.online
