@@ -14,7 +14,7 @@ env:
   # Environment variables shared across jobs and doesn't change per environment
   region: us-east-2
   accountId: ${{ secrets.AWS_ACCOUNT_ID }}
-  repo: deployables
+  repo: python-app
   namespace: deployable0504
   cluster-name: ${{ secrets.EKS_CLUSTER_NAME }}
 jobs:
