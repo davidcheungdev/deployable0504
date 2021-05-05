@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: deployable0504
+  name: {{ cookiecutter.name }}
   annotations:
     # nginx ingress
     kubernetes.io/ingress.class: nginx
@@ -11,11 +11,11 @@ metadata:
     cert-manager.io/cluster-issuer: clusterissuer-letsencrypt-production
     # CORS
     nginx.ingress.kubernetes.io/enable-cors: "true"
-    nginx.ingress.kubernetes.io/cors-allow-origin: "https://pythonapp.zero-david.online"
+    nginx.ingress.kubernetes.io/cors-allow-origin: "https://{{ cookiecutter.name }}.zero-david.online"
 
 spec:
   rules:
-  - host: pythonapi.zero-david.online
+  - host: {{ cookiecutter.name }}.zero-david.online
     http:
       paths:
         - path: /(.*)
@@ -24,5 +24,5 @@ spec:
             servicePort: http
   tls:
   - hosts:
-    - pythonapi.zero-david.online
-    secretName: deployable0504-tls-secret
+    - {{ cookiecutter.name }}.zero-david.online
+    secretName: {{ cookiecutter.name }}-tls-secret

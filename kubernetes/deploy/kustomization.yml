@@ -7,7 +7,7 @@ resources:
 - ingress.yml
 
 configMapGenerator:
-- name: python-app-config
+- name: {{ cookiecutter.name }}-config
   literals:
     - DATABASE_ENGINE=postgres
     - DATABASE_HOST=
@@ -16,4 +16,4 @@ configMapGenerator:
     - SERVICE_PORT=80
 
 commonLabels:
-  app: python-app
+  app: {{ cookiecutter.name }}

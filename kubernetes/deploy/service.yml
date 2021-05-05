@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: python-app
+  name: {{ cookiecutter.name }}
 spec:
   ports:
   - name: http
@@ -9,4 +9,4 @@ spec:
     port: 80
     targetPort: http
   selector:
-    app: python-app
+    app: {{ cookiecutter.name }}

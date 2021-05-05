@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: python-app
+  name: {{ cookiecutter.name }}
 spec:
   revisionHistoryLimit: 5
   selector:
     matchLabels:
-      app: python-app
+      app: {{ cookiecutter.name }}
   template:
     spec:
       containers:
-        - name: python-app
+        - name: {{ cookiecutter.name }}
           image: fake-image
           resources:
             requests:
@@ -24,7 +24,7 @@ spec:
               name: http
           envFrom:
           - configMapRef:
-              name: python-app-config
+              name: {{ cookiecutter.name }}-config
           env:
           - name: SERVER_PORT
             value: "80"
