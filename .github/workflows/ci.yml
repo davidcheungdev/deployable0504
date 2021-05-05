@@ -62,7 +62,7 @@ jobs:
       runs-on: ubuntu-latest
       env:
         environment-overlay: staging
-        cluster-authentication-role-arn: "arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/cheung0331-kubernetes-deployer-stage"
+        cluster-authentication-role-arn: "arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/${{ secrets.EKS_DEPLOYER_ROLE_NAME }}"
       steps:
         - uses: actions/checkout@v2
         - name: Set IMAGE_TAG as env
