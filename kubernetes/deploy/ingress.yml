@@ -20,7 +20,7 @@ spec:
       paths:
         - path: /(.*)
           backend:
-            serviceName: myapp
+            serviceName: python-app
             servicePort: http
   tls:
   - hosts:

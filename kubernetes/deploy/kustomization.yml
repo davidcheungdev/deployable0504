@@ -7,7 +7,7 @@ resources:
 - ingress.yml
 
 configMapGenerator:
-- name: myapp-config
+- name: python-app-config
   literals:
     - DATABASE_ENGINE=postgres
     - DATABASE_HOST=
@@ -16,4 +16,4 @@ configMapGenerator:
     - SERVICE_PORT=80
 
 commonLabels:
-  app: myapp
+  app: python-app

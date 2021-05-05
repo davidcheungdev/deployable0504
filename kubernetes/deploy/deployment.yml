@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp
+  name: python-app
 spec:
   revisionHistoryLimit: 5
   selector:
     matchLabels:
-      app: myapp
+      app: python-app
   template:
     spec:
       containers:
-        - name: myapp
+        - name: python-app
           image: fake-image
           resources:
             requests:
@@ -24,7 +24,7 @@ spec:
               name: http
           envFrom:
           - configMapRef:
-              name: myapp-config
+              name: python-app-config
           env:
           - name: SERVER_PORT
             value: "80"
