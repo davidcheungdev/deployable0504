@@ -4,6 +4,15 @@
 - Build a docker image that listens on a port
 - Creates an ingress, service and deployment in kubernetes
 
+# Things that happened behind the scene
+- ECR repository has been created for this repo
+- AWS key pair with access to push/read ECR repo
+- Cluster name / AWS account id / deployer role name
+
+# to be added
+- secrets
+- namespace handling
+- templating out ingress/svc/deployment name?
 # Deployment
 ## Kubernetes
 Your application is deployed on your EKS cluster through circleCI, you can see the pod status on kubernetes in your application namespace:

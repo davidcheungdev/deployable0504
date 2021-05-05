@@ -12,7 +12,7 @@ on:
     branches: [master, main]
 env:
   # Environment variables shared across jobs and doesn't change per environment
-  region: us-east-2
+  region: ${{ secrets.AWS_DEFAULT_REGION }}
   accountId: ${{ secrets.AWS_ACCOUNT_ID }}
   repo: python-app
   namespace: deployable0504
@@ -57,7 +57,7 @@ jobs:
             push: true
             tags: ${{ env.accountId }}.dkr.ecr.${{ env.region }}.amazonaws.com/${{ env.repo }}:${{ env.IMAGE_TAG }}
 
-  staging-deploy:
+  deploy:
       needs: build
       runs-on: ubuntu-latest
       env:
