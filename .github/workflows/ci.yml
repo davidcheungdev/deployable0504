@@ -9,7 +9,7 @@
 name: CI Pipeline
 on:
   push:
-    branches: [master, main]
+    branches: [never]
 env:
   # Environment variables shared across jobs and doesn't change per environment
   region: ${{ secrets.AWS_DEFAULT_REGION }}

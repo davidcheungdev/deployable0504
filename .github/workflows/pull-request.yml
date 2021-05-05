@@ -5,7 +5,7 @@
 name: Pull request
 on:
   pull_request:
-    branches: ['*']
+    branches: ['never']
 jobs:
   unit-test:
     runs-on: ubuntu-latest
