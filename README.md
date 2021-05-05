@@ -1,8 +1,11 @@
 #  deployable0504 Backend service
 
 # Essentials steps to get your backend server deployed
-- Build a docker image that listens on a port
-- Creates an ingress, service and deployment in kubernetes
+- Webserver that listens on a port
+- Dockerfile that builds that 
+- Creates an ingress, service and deployment in Kubernetes cluster
+- CI/CD to build and push the image to deployment
+
 
 # Things that happened behind the scene
 - ECR repository has been created for this repo
